@@ -13,7 +13,6 @@ export type BackupDownloadVariables = {
 export async function downloadBackup({ ref, backup }: BackupDownloadVariables) {
   const { data, error } = await post('/platform/database/{ref}/backups/download', {
     params: { path: { ref } },
-    // @ts-ignore TODO(kamil): Remove ts-ignore once `DownloadBackupBody` changes lands
     body: {
       id: backup.id,
     },
